@@ -137,3 +137,43 @@ Two settings live on GitHub, not in the repository, and are recorded here.
 - Head branches are deleted automatically after a pull request is merged (Settings → General → Pull Requests). Local copies are deleted by hand.
 
 Checked on 2026-10-08 with PR #4: a failing `tests` check blocked the merge.
+
+## Decision · 2026-10-14 · rules for a dry weekday
+
+These rules are fixed before any comparison on dry weekdays is computed.
+
+- Weekday: Monday to Friday. Known limit: public holidays count as weekdays.
+- Dry: a day with zero minutes of rain, parameter `RainDur` with daily values, at the station `Zch_Stampfenbachstrasse`. A weekday without a known `RainDur` value at that station is not dry. Known limit: one station stands for the whole city.
+- Source: the city's daily weather data, one CSV per year at `https://data.stadt-zuerich.ch/dataset/ugz_meteodaten_tagesmittelwerte/download/ugz_ogd_meteo_d1_<year>.csv`.
+- Places and years: the same 10 comparable places and the same years, 2019 and 2025, as the first answer. The 5 percent band and the majority rule stay.
+
+## Hypothesis · 2026-10-14 · Enough dry weekdays with bike data remain at the comparable places
+
+**Expected:** at least 80 dry weekdays with bike data per place in each of the two years, at all 10 places.
+
+**Test:** for each of the 10 comparable places in `data/derived/answer.parquet` and each of the two years, count the days that are a dry weekday and have bike data in `data/derived/counts.parquet`. The two weather files were downloaded once for this count, outside `data/raw`, and are not part of the pipeline. Only this count was run; no change between the years was computed.
+
+**Result:** all 10 places have at least 80 dry weekdays with bike data in both years, against the expected 80: 117 to 120 in 2019 and 119 to 130 in 2025. Both years have 261 weekdays, of which 120 (2019) and 130 (2025) are dry; no weekday lacks a known `RainDur` value, so 0 weekdays count as not dry for that reason. Per place (OST/NORD: 2019, 2025):
+
+- 2681319/1248665: 120, 130
+- 2681339/1248647: 120, 130
+- 2682296/1248311: 120, 130
+- 2682375/1247055: 120, 119
+- 2682731/1247708: 119, 130
+- 2682873/1245891: 117, 130
+- 2682881/1246549: 120, 130
+- 2682933/1248821: 120, 130
+- 2683457/1247065: 120, 130
+- 2684006/1246566: 120, 128
+
+**Decision:** the rules for loop two stand. Every comparable place has at least 117 dry weekdays with bike data in each year, so the comparison on dry weekdays rests on about 120 days per place and year instead of 300 or more. The answer for loop two names that.
+
+## AI use · 2026-10-14 · rules for a dry weekday
+
+**Delegated:** writing the rules into `docs/one-pager.md` and `docs/log.md`, the one-off download of the two weather files and the count for the hypothesis.
+
+**Mine:** the rules, including that a weekday without a known `RainDur` value is not dry, the hypothesis and its expected value.
+
+**Checks passed:**
+- Each weather file has exactly one `RainDur` row per day for `Zch_Stampfenbachstrasse` (365 in 2019, 365 in 2025), all in minutes and with status "bereinigt".
+- A day has bike data under the same test as `place_year_table` (VELO_IN or VELO_OUT not null); the 10 places are the ones not marked "not comparable" in `answer.parquet`.
