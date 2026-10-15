@@ -202,3 +202,35 @@ The date of a day is the first 10 characters of `Datum`, the local date as the f
 **Checks passed:**
 - The seven loop-one tests pass unchanged; ten tests green in all.
 - `place_change_table` on `data/derived/place_year.parquet` gives a table identical to `data/derived/answer.parquet`, with the same sentence for the city.
+
+## Hypothesis · 2026-10-15 · The answer holds on dry weekdays
+
+**Expected:** at least 6 of the 10 comparable places grew on dry weekdays, and the answer for the city stays yes.
+
+**Test:** the answer_dry step of `uv run build` keeps only the rows of `data/derived/counts.parquet` whose date is a dry weekday in `data/derived/days.parquet`, builds the table per place and year from them with `place_year_table`, and applies the rules for loop two: a place is comparable when it is comparable in `data/derived/answer.parquet`, and the 5 percent band and the majority rule stay.
+
+**Result:** 6 of the 10 comparable places grew on dry weekdays, as expected (at least 6); 2 shrank and 2 are unchanged. For the city on dry weekdays: yes. On all days it was 8 grew, 2 shrank, 0 unchanged. The two places that grew on all days and are unchanged on dry weekdays are 2681339/1248647 (+9.2 percent on all days, +4.6 on dry weekdays) and 2682375/1247055 (+5.4, −1.3). Place 2682933/1248821 grew by +5.4 percent on dry weekdays, just above the 5 percent band. Each place has 117 to 120 dry weekdays with bike data in 2019 and 119 to 130 in 2025. Per place (OST/NORD: all days, dry weekdays):
+
+- 2681319/1248665: grew +43.6, grew +34.6
+- 2681339/1248647: grew +9.2, unchanged +4.6
+- 2682296/1248311: shrank −7.4, shrank −14.0
+- 2682375/1247055: grew +5.4, unchanged −1.3
+- 2682731/1247708: shrank −20.4, shrank −24.5
+- 2682873/1245891: grew +32.3, grew +25.5
+- 2682881/1246549: grew +31.5, grew +23.2
+- 2682933/1248821: grew +13.0, grew +5.4
+- 2683457/1247065: grew +89.5, grew +64.6
+- 2684006/1246566: grew +38.9, grew +28.3
+
+**Decision:** the answer holds on dry weekdays, and it is weaker. Yes, cycling grew from 2019 to 2025 at 6 of the 10 comparable places on dry weekdays, against 8 of 10 on all days. The margin is one place at +5.4 percent, just above the band. Every one of the 10 places grew less, or shrank more, on dry weekdays than on all days. Why is not part of this project. The answer for the city reports both sentences. Loop two is done.
+
+## AI use · 2026-10-15 · the answer on dry weekdays
+
+**Delegated:** the answer_dry step of `uv run build` (`dry_counts`, `dry_place_change_table`, `answer_dry`), using `status_expr` and `city_sentence` from the refactor of the answer step, the tests in `tests/test_answer_dry.py`, including the small inputs written inside them, and the README update.
+
+**Mine:** the rules for loop two, the fixture `tests/fixtures/place_year_dry_small.csv` and its expected results with `tests/fixtures/place_year_small.csv` as the loop-one side, the wording of the sentence, that places that cannot be compared keep their bikes per day, that a comparable place without dry-weekday data in one year stops the step, the hypothesis and its expected value.
+
+**Checks passed:**
+- Fourteen tests green.
+- On the real data: 44 places, 10 comparable as in `answer.parquet`, 34 with the reason "not comparable on all days". The dry-weekday days with bike data per place (117 to 120 in 2019, 119 to 130 in 2025) match the count in the hypothesis of 2026-10-14.
+- The final check ran `uv run build --force`, which downloaded the counts file again: the portal's copy now runs to 12 October 2026 (61421788 bytes, sha256 04c8c75d5715…). Both sentences and the change and status of all 10 places are the same as above; 367 place-years and 44 places as before.
