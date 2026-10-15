@@ -2,6 +2,7 @@ import argparse
 from pathlib import Path
 
 from ds_projekt_2026_tutorial.answer import answer
+from ds_projekt_2026_tutorial.answer_dry import answer_dry
 from ds_projekt_2026_tutorial.days import WEATHER_YEARS, days
 from ds_projekt_2026_tutorial.derive import derive
 from ds_projekt_2026_tutorial.download import URL, WEATHER_URL, download
@@ -19,7 +20,8 @@ def main() -> None:
 
     raw = download(URL, RAW_DIR, force=args.force)
     weather = [download(WEATHER_URL.format(year=y), RAW_DIR, force=args.force) for y in WEATHER_YEARS]
-    days(weather, DERIVED_DIR / "days.parquet", force=args.force)
+    days_path = days(weather, DERIVED_DIR / "days.parquet", force=args.force)
     counts = load(raw, DERIVED_DIR / "counts.parquet", force=args.force)
     place_year = derive(counts, DERIVED_DIR / "place_year.parquet", force=args.force)
-    answer(place_year, DERIVED_DIR / "answer.parquet", force=args.force)
+    answer_all = answer(place_year, DERIVED_DIR / "answer.parquet", force=args.force)
+    answer_dry(counts, days_path, answer_all, DERIVED_DIR / "answer_dry.parquet", force=args.force)
