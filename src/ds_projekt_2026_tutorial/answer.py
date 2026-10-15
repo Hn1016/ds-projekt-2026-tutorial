@@ -9,6 +9,19 @@ MIN_DAYS = 300
 BAND_PERCENT = 5.0
 
 
+def status_expr() -> pl.Expr:
+    """Not comparable when there is a reason; else grew or shrank by more than BAND_PERCENT, or unchanged."""
+    return (
+        pl.when(pl.col("reason").is_not_null())
+        .then(pl.lit("not comparable"))
+        .when(pl.col("change_percent") > BAND_PERCENT)
+        .then(pl.lit("grew"))
+        .when(pl.col("change_percent") < -BAND_PERCENT)
+        .then(pl.lit("shrank"))
+        .otherwise(pl.lit("unchanged"))
+    )
+
+
 def place_change_table(place_year: pl.DataFrame) -> pl.DataFrame:
     """One row per place: bikes per day in both years, the change in percent and a status.
 
@@ -43,21 +56,13 @@ def place_change_table(place_year: pl.DataFrame) -> pl.DataFrame:
         .join(year(LAST_YEAR), on=["OST", "NORD"], how="left")
         .with_columns(reason=pl.when(reasons != "").then(reasons))
         .with_columns(change_percent=pl.when(pl.col("reason").is_null()).then((last - first) / first * 100))
-        .with_columns(
-            status=pl.when(pl.col("reason").is_not_null())
-            .then(pl.lit("not comparable"))
-            .when(pl.col("change_percent") > BAND_PERCENT)
-            .then(pl.lit("grew"))
-            .when(pl.col("change_percent") < -BAND_PERCENT)
-            .then(pl.lit("shrank"))
-            .otherwise(pl.lit("unchanged"))
-        )
+        .with_columns(status=status_expr())
         .select("OST", "NORD", first, last, "change_percent", "status", "reason")
         .sort("OST", "NORD")
     )
 
 
-def city_sentence(table: pl.DataFrame) -> str:
+def city_sentence(table: pl.DataFrame, opening: str = "For the city") -> str:
     """The answer for the city: yes when more than half of the comparable places grew."""
     n = {status: (table["status"] == status).sum() for status in ["grew", "shrank", "unchanged", "not comparable"]}
     comparable = n["grew"] + n["shrank"] + n["unchanged"]
@@ -65,7 +70,7 @@ def city_sentence(table: pl.DataFrame) -> str:
     is_are = "is" if n["unchanged"] == 1 else "are"
     places = "place" if n["not comparable"] == 1 else "places"
     return (
-        f"For the city: {yes_no}. {n['grew']} of {comparable} comparable places grew, {n['shrank']} shrank, "
+        f"{opening}: {yes_no}. {n['grew']} of {comparable} comparable places grew, {n['shrank']} shrank, "
         f"{n['unchanged']} {is_are} unchanged, {n['not comparable']} {places} cannot be compared."
     )
 
