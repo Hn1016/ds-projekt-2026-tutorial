@@ -242,4 +242,4 @@ A loop usually runs through the kinds in this order: find out, keep it, harden i
 
 ---
 
-Previous: [Chapter 4 · Checks that run without you](chapter-4.md) · [Overview](README.md)
+Previous: [Chapter 4 · Checks that run without you](chapter-4.md) · [Overview](README.md) · Next: [Chapter 6 · A second data source](chapter-6.md)

@@ -15,6 +15,7 @@ This folder holds the tutorial text. Everything else in this repository was buil
 | [3 · From exploration to a pipeline](chapter-3.md) | One command builds your first result table from nothing, on any machine, and a test guards the logic behind it |
 | [4 · Checks that run without you](chapter-4.md) | Every pull request is checked before you look at it: the tests run by themselves, a red result blocks the merge, and a reviewer reads the change against your own rules |
 | [5 · From table to answer](chapter-5.md) | One command ends in a sentence that answers the question |
+| [6 · A second data source](chapter-6.md) | A second data source is in the pipeline, with its own download, step and fixture, and nothing that existed had to change |
 
 ## How to use the prompts
 
