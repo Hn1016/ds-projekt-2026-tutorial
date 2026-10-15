@@ -9,7 +9,7 @@
 
 ## Pipeline
 - Only the download step writes to data/raw, with one manifest line per download. (Raw data stays traceable.)
-- Every step prints one line, skips when its output exists and rebuilds with --force. (Reruns are cheap and visible.)
+- Every step prints one line and skips when its output exists. --force rebuilds every derived step; only --force-download fetches the raw files again. (Reruns are cheap and visible, and raw data changes only on purpose.)
 - Logic lives in functions that take a table and return a table. (Testable without files.)
 
 ## Tests
