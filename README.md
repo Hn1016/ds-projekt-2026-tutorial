@@ -11,6 +11,8 @@
 | Step | Output | What it holds |
 |---|---|---|
 | download | `data/raw/verkehrszaehlungen_werte_fussgaenger_velo_alle_jahre.parquet` | the all-years file from the city's open data portal; each download adds a line to `data/raw/manifest.csv` |
+| download | `data/raw/ugz_ogd_meteo_d1_2019.csv`, `data/raw/ugz_ogd_meteo_d1_2025.csv` | the city's daily weather data for the two years of the comparison; each download adds a line to `data/raw/manifest.csv` |
+| days | `data/derived/days.parquet` | one row per day in the weather files: the date, the rain minutes at Zch_Stampfenbachstrasse and whether the day is a dry weekday |
 | load | `data/derived/counts.parquet` | the raw counts, with a real timestamp |
 | derive | `data/derived/place_year.parquet` | one row per place and year: days with bike data and average bikes per day |
 | answer | `data/derived/answer.parquet` | one row per place: bikes per day in 2019 and 2025, the change in percent, a status (grew, shrank, unchanged or not comparable) and the reason for places that cannot be compared |

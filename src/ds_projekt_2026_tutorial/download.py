@@ -8,6 +8,10 @@ URL = (
     "https://data.stadt-zuerich.ch/dataset/ted_taz_verkehrszaehlungen_werte_fussgaenger_velo"
     "/download/verkehrszaehlungen_werte_fussgaenger_velo_alle_jahre.parquet"
 )
+WEATHER_URL = (
+    "https://data.stadt-zuerich.ch/dataset/ugz_meteodaten_tagesmittelwerte"
+    "/download/ugz_ogd_meteo_d1_{year}.csv"
+)
 MANIFEST_COLUMNS = ["url", "date", "size_bytes", "sha256"]
 
 
