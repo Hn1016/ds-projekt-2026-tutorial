@@ -177,3 +177,18 @@ These rules are fixed before any comparison on dry weekdays is computed.
 **Checks passed:**
 - Each weather file has exactly one `RainDur` row per day for `Zch_Stampfenbachstrasse` (365 in 2019, 365 in 2025), all in minutes and with status "bereinigt".
 - A day has bike data under the same test as `place_year_table` (VELO_IN or VELO_OUT not null); the 10 places are the ones not marked "not comparable" in `answer.parquet`.
+
+## Decision · 2026-10-15 · reading the weather files
+
+The date of a day is the first 10 characters of `Datum`, the local date as the file gives it. Every `Datum` in the 2019 and 2025 files carries the offset +0100, also in summer, so converting to UTC would move every day back by one. Missing values are written as `NA` in the real files, and the fixture (`tests/fixtures/weather_small.csv`) pins this with its 2020-03-06 row; an empty field also counts as missing. When a day has more than one `RainDur` value at `Zch_Stampfenbachstrasse`, the days step stops with an error instead of picking one; the 2019 and 2025 files have none.
+
+## AI use · 2026-10-15 · the days step
+
+**Delegated:** the weather downloads in `uv run build`, the days step (`read_weather`, `day_table`, `days`), the tests in `tests/test_days.py`, including the two `RainDur` rows for one day written inside the test, and the README update.
+
+**Mine:** the step and its columns, the fixture `tests/fixtures/weather_small.csv` and the six expected rows, and the decision that two `RainDur` values for one day stop the step.
+
+**Checks passed:**
+- Ten tests green.
+- `uv run build` downloaded the two weather files into `data/raw` with one manifest line each, and a second run skipped them.
+- `days.parquet` has 365 days per year and 120 dry weekdays in 2019 and 130 in 2025, the same as the one-off count in the hypothesis of 2026-10-14; no day lacks a rain value.
