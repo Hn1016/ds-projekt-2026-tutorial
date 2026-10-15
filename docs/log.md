@@ -192,3 +192,13 @@ The date of a day is the first 10 characters of `Datum`, the local date as the f
 - Ten tests green.
 - `uv run build` downloaded the two weather files into `data/raw` with one manifest line each, and a second run skipped them.
 - `days.parquet` has 365 days per year and 120 dry weekdays in 2019 and 130 in 2025, the same as the one-off count in the hypothesis of 2026-10-14; no day lacks a rain value.
+
+## AI use · 2026-10-15 · refactor of the answer step
+
+**Delegated:** moving the 5 percent band of `place_change_table` into `status_expr`, so loop two can use the same rule, and making the opening of the city sentence a parameter of `city_sentence`, with "For the city" as the default. No change in behaviour.
+
+**Mine:** the split of this refactor from the answer on dry weekdays.
+
+**Checks passed:**
+- The seven loop-one tests pass unchanged; ten tests green in all.
+- `place_change_table` on `data/derived/place_year.parquet` gives a table identical to `data/derived/answer.parquet`, with the same sentence for the city.
