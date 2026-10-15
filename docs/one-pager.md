@@ -27,7 +27,7 @@ Nothing else came with it: no time span, no definition of cycling, no place.
 
 ## How
 
-**Source:** the open data portal of the city of Zurich, dataset "Daten der automatischen Fussgänger- und Velozählung, Viertelstundenwerte". The pipeline uses the single all-years file (`verkehrszaehlungen_werte_fussgaenger_velo_alle_jahre.parquet`) with counts per counter and quarter hour, not the yearly CSVs. Changed on 2026-10-08, because it is one download and the exploration already ran on it (see `docs/log.md`). Its data runs to 5 October 2026 (updated on 2026-10-08: the file on the portal had grown since the earlier limit of 6 June 2026).
+**Source:** the open data portal of the city of Zurich, dataset "Daten der automatischen Fussgänger- und Velozählung, Viertelstundenwerte". The pipeline uses the single all-years file (`verkehrszaehlungen_werte_fussgaenger_velo_alle_jahre.parquet`) with counts per counter and quarter hour, not the yearly CSVs. Changed on 2026-10-08, because it is one download and the exploration already ran on it (see `docs/log.md`). The current date of the data is in `data/raw/manifest.csv`, which records when each file was downloaded, and in the line the load step prints when it writes `counts.parquet`, which gives the first and last day of the data.
 
 **Loop one (all days):**
 1. Download the all-years file.
