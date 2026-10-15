@@ -18,9 +18,9 @@ What keeps the project together when a source is added:
 
 This is the first chapter without a new tool, and the shortest.
 
-![The second source joins the chain, and the loop-one steps do not change](images/ch6-pipeline.png)
+![The second source joins the chain without changing what the first produces](images/ch6-pipeline.png)
 
-The upper row is the pipeline from chapter 5, and not one of its steps changed. The lower row is the new source: its own download and its own step. The two meet in exactly one place, the last step.
+The upper row is the pipeline from chapter 5. Its steps produce exactly what they did before, and the one change to their code, a refactor, comes up in the last section. The lower row is the new source: its own download and its own step. The two meet in exactly one place, the last step, which reads the counts, the day table and the first answer.
 
 One more rule sits in the picture: the new source changes one thing. The places, the years, the band and the majority rule are those of loop one, and only the days change. A source that changes several things at once cannot say which one made the difference, and neither can you when something breaks.
 
@@ -172,7 +172,7 @@ Result: the Decision entries of 2026-10-14 and 2026-10-15 in the [log](https://g
 
 Everything before the last step knows one source. The last step is the only place where the two are read together, and it is built like any other step: the expectation into the log first, a fixture that can tell the rules apart, one independent check, and a line in the log that says what the result means.
 
-The new step, `answer_dry`, reads the counts, the day table and the first answer. It keeps the counts of dry weekdays, builds the table per place and year from them with the function that already exists, and applies the rules of loop two. Its output has the same columns as the first answer, and its printed line is a second sentence for the city. The first answer step did not change, and neither did the sentence it prints.
+The new step, `answer_dry`, reads the counts, the day table and the first answer. It keeps the counts of dry weekdays, builds the table per place and year from them with the function that already exists, and applies the rules of loop two. Its output has the same columns as the first answer, and its printed line is a second sentence for the city. The first answer step produces what it did before, and so does the sentence it prints.
 
 Two things made this step safe to build:
 
@@ -215,11 +215,11 @@ Result: [answer\_dry.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/
 
 The source is in, and the moment a project starts to slip is now: the rules that were easy to keep for one source get bent for the second. Three things happened in these two days that a rule had to hold against.
 
-**The package that grew.** The last package came to about 255 lines, over the limit of about 200. Part of it was a change to the loop-one step, `answer.py`, so that both answers share the band and the sentence. That is the exact point where a second source starts bending the first one's code, and the rule caught it: the agent named the number and proposed a split. The change to the old step became its own pull request, 27 lines, with no change in results and the seven old tests passing untouched as the proof. A refactor is a package whose check is that nothing moved, and it must never travel inside a package that adds something.
+**The package that grew.** The last package came to about 255 lines, over the limit of about 200. Part of it was a change to the loop-one step, `answer.py`, so that both answers share the band and the sentence. That is the exact point where a second source starts bending the first one's code, and the rule caught it: the agent named the number and proposed a split. The change to the old step became its own pull request, 27 lines of code and a log entry, with no change in results and the seven old tests passing untouched as the proof. A refactor is a package whose check is that nothing moved, and it must never travel inside a package that adds something.
 
 **The 230 lines that stayed.** With the refactor out, the answer package still had 230 lines. 111 of them are the test file and 10 the fixture, both of which a reader checks line by line anyway. The rule says "about 200", and this is what "about" is for. The reason is in the pull request, and that is the difference between a rule bent and a rule ignored.
 
-**The source that moved.** The last check ran the full build with `--force`. That rebuilds every step including the downloads, and the counts file on the portal had grown by a week since chapter 5. The base of the work had changed in the middle of a package. The manifest showed it: three new lines with new dates, and for the counts file a new size and hash. The agent rebuilt everything from the new file, compared every result with the old ones, found them unchanged, and wrote it into the log. Two things follow. The manifest from chapter 3 is what makes a moved source visible at all. And `--force` has earned a hardening package: one flag for the derived tables, a separate one for the downloads.
+**The source that moved.** The last check ran the full build with `--force`. That rebuilds every step including the downloads, and the counts file on the portal had grown by a week since chapter 5. The base of the work had changed in the middle of a package. The manifest showed it: three new lines, and for the counts file a new size and hash. The agent rebuilt everything from the new file, compared every result with the old ones, found them unchanged, and wrote it into the log. Two things follow. The manifest from chapter 3 is what makes a moved source visible at all. And `--force` has earned a hardening package: one flag for the derived tables, a separate one for the downloads.
 
 The same run showed that the one-pager named the date to which the counts data runs, now wrong for the second time. One line points to the manifest instead. A number that changes with every download does not belong in a file that describes the project.
 
