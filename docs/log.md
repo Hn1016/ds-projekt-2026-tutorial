@@ -234,3 +234,18 @@ The date of a day is the first 10 characters of `Datum`, the local date as the f
 - Fourteen tests green.
 - On the real data: 44 places, 10 comparable as in `answer.parquet`, 34 with the reason "not comparable on all days". The dry-weekday days with bike data per place (117 to 120 in 2019, 119 to 130 in 2025) match the count in the hypothesis of 2026-10-14.
 - The final check ran `uv run build --force`, which downloaded the counts file again: the portal's copy now runs to 12 October 2026 (61421788 bytes, sha256 04c8c75d5715…). Both sentences and the change and status of all 10 places are the same as above; 367 place-years and 44 places as before.
+
+## Decision · 2026-10-15 · --force leaves the raw files as they are
+
+`--force` rebuilds every derived step and leaves the files in `data/raw` as they are. A new option `--force-download` fetches the raw files again as well and rebuilds every derived step. Before, `--force` also downloaded again, so there was no way to rebuild only the derived tables, and in #18 a forced rebuild pulled a newer counts file in the middle of a package. The rule in `CLAUDE.md` changes to match: "--force rebuilds every derived step; only --force-download fetches the raw files again" (issue #21).
+
+## AI use · 2026-10-15 · --force and --force-download
+
+**Delegated:** the issue text (#21), the change to `build.py`, the test in `tests/test_build.py` and the README update.
+
+**Mine:** the decision, the wording of the rule in `CLAUDE.md`, and that the test must fail before the change.
+
+**Checks passed:**
+- Before the change, `tests/test_build.py` failed in two of its three cases: with `--force` the download step got force (True instead of False), and `--force-download` was an unknown option. After the change, all three pass; seventeen tests green.
+- The test replaces the steps with stand-ins, so it downloads nothing and reads no `data/`.
+- `uv run build --force` skipped the three downloads and rebuilt the five derived steps. `data/raw/manifest.csv` has 10 lines before and after, and both sentences for the city are unchanged.
