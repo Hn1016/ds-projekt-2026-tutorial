@@ -43,6 +43,7 @@ Nothing else came with it: no time span, no definition of cycling, no place.
 **Rules for loop two:** decided on 2026-10-14, before any comparison was computed (see `docs/log.md`).
 
 - Weekday: Monday to Friday. Known limit: public holidays count as weekdays.
+- Size of that limit, measured on 2026-10-16: without the canton's ten public holidays per year, one place (2681339/1248647) moves from unchanged to grew, and the answer for the city stays yes (see `docs/log.md`).
 - Dry: a day with zero minutes of rain, parameter `RainDur` with daily values, at the station `Zch_Stampfenbachstrasse`. A weekday without a known `RainDur` value at that station is not dry. Known limit: one station stands for the whole city.
 - Weather source: the city's daily weather data, one CSV per year at `https://data.stadt-zuerich.ch/dataset/ugz_meteodaten_tagesmittelwerte/download/ugz_ogd_meteo_d1_<year>.csv`.
 - Places and years: the same 10 comparable places and the same years, 2019 and 2025, as the first answer. The 5 percent band and the majority rule stay.

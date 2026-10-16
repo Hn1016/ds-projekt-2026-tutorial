@@ -259,3 +259,23 @@ The date of a day is the first 10 characters of `Datum`, the local date as the f
 **Checks passed:**
 - The skill's entry template has the same headings as the Hypothesis entries of 2026-10-07, 2026-10-09, 2026-10-14 and 2026-10-15.
 - The skill has not been run yet; the first run is mine.
+
+## Hypothesis · 2026-10-16 · Public holidays make no difference to the sentence on dry weekdays
+
+**Expected:** the sentence for the city on dry weekdays stays the same when the canton of Zurich's ten public holidays per year (New Year, Berchtoldstag, Good Friday, Easter Monday, 1 May, Ascension, Whit Monday, 1 August, Christmas, St Stephen's Day; no half-days) no longer count as dry weekdays: yes, 6 grew, 2 shrank, 2 unchanged. Places may move within the counts.
+
+**Test:** in a copy of `data/derived/days.parquet` held in memory, `dry_weekday` is set to false on the 20 holidays of 2019 and 2025 (all fall on Monday to Friday). On that copy, the existing functions `dry_counts`, `place_year_table`, `dry_place_change_table` (with `data/derived/answer.parquet`) and `city_sentence` give the sentence on dry weekdays, which is compared with the current one. No file in `data/` was written, the rules and the pipeline were not changed, and no comparison with all days was computed.
+
+**Result:** the sentence changes, against the expected same sentence. For the city on dry weekdays: yes. 7 of 10 comparable places grew, 2 shrank, 1 is unchanged, 34 places cannot be compared (before: 6 grew, 2 shrank, 2 unchanged). 10 of the 20 holidays were dry weekdays, 3 in 2019 and 7 in 2025, so the dry weekdays go from 120 to 117 in 2019 and from 130 to 123 in 2025. Place 2681339/1248647 goes from unchanged (+4.6 percent) to grew (+6.8); no place moves the other way. The change rises at all 10 places, by 1.5 to 2.9 percentage points; place 2682933/1248821, the one just above the band, goes from +5.4 to +7.6. The answer for the city stays yes.
+
+**Decision:** Rule stays. The holiday rule moves one place, 2681339, across the band and not the answer for the city. It is a known limit with a measured size, not a reason to change loop two. The one-pager gets the limit as a line in this package.
+
+## AI use · 2026-10-16 · public holidays on dry weekdays
+
+**Delegated:** the test, writing the entry and the line in `docs/one-pager.md`.
+
+**Mine:** the hypothesis, the list of holidays and their dates, the expected result and the decision.
+
+**Checks passed:**
+- Second route: the same script on the day table without any holiday removed gives a table identical to `data/derived/answer_dry.parquet`.
+- The 20 dates were checked by me; the script asserts that all of them fall on Monday to Friday.
