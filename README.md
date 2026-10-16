@@ -21,3 +21,5 @@
 Each step prints one line and skips when its output already exists. Add `--force` to rebuild every derived step; the files in `data/raw` stay as they are. Add `--force-download` to fetch the raw files again as well, which adds a line per file to `data/raw/manifest.csv`, and rebuild every derived step. The last two lines are the sentences for the city, on all days and on dry weekdays: yes or no, and how many places grew, shrank, are unchanged or cannot be compared. The rules behind it are in `docs/one-pager.md`.
 
 `uv run pytest` runs the tests.
+
+In Claude Code, `/hypothesis <statement>` runs the hypothesis routine: it asks for the expected result, proposes a test, runs it outside the pipeline and writes the Hypothesis entry into `docs/log.md`.

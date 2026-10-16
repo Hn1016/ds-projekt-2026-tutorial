@@ -249,3 +249,13 @@ The date of a day is the first 10 characters of `Datum`, the local date as the f
 - Before the change, `tests/test_build.py` failed in two of its three cases: with `--force` the download step got force (True instead of False), and `--force-download` was an unknown option. After the change, all three pass; seventeen tests green.
 - The test replaces the steps with stand-ins, so it downloads nothing and reads no `data/`.
 - `uv run build --force` skipped the three downloads and rebuilt the five derived steps. `data/raw/manifest.csv` has 10 lines before and after, and both sentences for the city are unchanged.
+
+## AI use · 2026-10-16 · the hypothesis skill
+
+**Delegated:** the issue text (#23), the skill `.claude/skills/hypothesis/SKILL.md` and the README line.
+
+**Mine:** that the routine becomes a skill and not a rule in `CLAUDE.md`, its steps, that the expected result and the Decision are mine and written in my words, the AI use entry after each Hypothesis entry, the branch `hypothesis-<slug>` when on main, and `disable-model-invocation: true`.
+
+**Checks passed:**
+- The skill's entry template has the same headings as the Hypothesis entries of 2026-10-07, 2026-10-09, 2026-10-14 and 2026-10-15.
+- The skill has not been run yet; the first run is mine.
