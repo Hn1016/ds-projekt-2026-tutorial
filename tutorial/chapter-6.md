@@ -240,4 +240,4 @@ Result: the refactor in [pull request 17](https://github.com/vp-82/ds-projekt-20
 
 ---
 
-Previous: [Chapter 5 · From table to answer](chapter-5.md) · [Overview](README.md)
+Previous: [Chapter 5 · From table to answer](chapter-5.md) · [Overview](README.md) · Next: [Chapter 7 · The method becomes a tool](chapter-7.md)

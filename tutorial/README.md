@@ -16,6 +16,7 @@ This folder holds the tutorial text. Everything else in this repository was buil
 | [4 · Checks that run without you](chapter-4.md) | Every pull request is checked before you look at it: the tests run by themselves, a red result blocks the merge, and a reviewer reads the change against your own rules |
 | [5 · From table to answer](chapter-5.md) | One command ends in a sentence that answers the question |
 | [6 · A second data source](chapter-6.md) | A second data source is in the pipeline, with its own download, step and fixture, and nothing that existed had to change |
+| [7 · The method becomes a tool](chapter-7.md) | The hypothesis routine is a skill that runs the same way every time, and a fresh clone builds the same answer with one command |
 
 ## How to use the prompts
 
