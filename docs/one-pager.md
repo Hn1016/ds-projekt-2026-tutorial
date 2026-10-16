@@ -63,3 +63,4 @@ Nothing else came with it: no time span, no definition of cycling, no place.
 - The unknowns are written into the result: counting error, sites that moved or were added, the years covered.
 - Someone else can rebuild the table from nothing with one command and gets the same numbers from the same raw files.
 - Loop one is done when all of this holds for all days. Loop two is done when the same table exists for dry weekdays and the two tables are compared.
+- Checked on 2026-10-16: a fresh clone of `main`, `uv sync` and `uv run build` gave both sentences and both answer tables identical to my working copy, from a counts file one day newer. Known limit: on my machine, with the same Python and the same uv cache; the build has not run on another machine (see `docs/log.md`).
