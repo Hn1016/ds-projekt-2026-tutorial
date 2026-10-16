@@ -147,7 +147,7 @@ Seven hypotheses carried the project from the empty repository to here, every on
 | 7 | Public holidays make no difference | the same sentence | one place changed its label | no | the rule stays, the limit has a size |
 | 7 | Someone else can rebuild it from a fresh clone | the same sentences and tables | the same, from a newer counts file | yes | loop two is done, limit: same machine |
 
-Still untested, and written as such in the one-pager: a day with a partial outage counts as a full day, one weather station stands for the whole city, whether the ten counting places stand for the whole city, and the build on another machine. Each is a hypothesis for whoever picks the project up, and the skill is there for it.
+Still untested, three of them written as such in the one-pager and one in the log: a day with a partial outage counts as a full day, one weather station stands for the whole city, the build on another machine, and, in the log only, whether the ten counting places stand for the whole city. Each is a hypothesis for whoever picks the project up, and the skill is there for it.
 
 This closes the basics. The project now has one command that builds everything from nothing, two sentences at its end, 13 rules, 17 tests, a log with seven hypotheses, one skill, and a one-pager whose Done has been checked by a clone. The source moved twice while we worked and the answer did not. That is the state to be in before going deeper.
 
