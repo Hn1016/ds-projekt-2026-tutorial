@@ -279,3 +279,23 @@ The date of a day is the first 10 characters of `Datum`, the local date as the f
 **Checks passed:**
 - Second route: the same script on the day table without any holiday removed gives a table identical to `data/derived/answer_dry.parquet`.
 - The 20 dates were checked by me; the script asserts that all of them fall on Monday to Friday.
+
+## Hypothesis · 2026-10-16 · Someone else can rebuild the result from a fresh clone
+
+**Expected:** yes: a fresh clone of the repository in a new folder, `uv sync` and `uv run build` give both sentences identical, and `answer.parquet` and `answer_dry.parquet` identical row for row, to my working copy. The test also reports whether the sha256 of the three raw files in the clone's manifest are the same as in my working copy.
+
+**Test:** `git clone` of the GitHub repository (`main` at f73481d) into a new folder outside the working copy, then `uv sync` and `uv run build`, which downloaded the three raw files fresh from the portal. The last two lines of the build were compared with `city_sentence` on my `answer.parquet` and `answer_dry.parquet`; both tables were compared with exact values, same rows, order, columns and types; and the clone's manifest sha256 per raw file was compared with the latest line for that file in my `data/raw/manifest.csv`. The other derived tables were not compared, no tests were run in the clone, and nothing in my working copy's `data/` was written.
+
+**Result:** yes, as expected. Both sentences are identical (8 of 10 grew on all days, 6 of 10 on dry weekdays), and `answer.parquet` and `answer_dry.parquet` are identical row for row (44 rows, 7 columns each). The two weather files have the same sha256 as in my working copy. The counts file does not: the portal moved again, from 61421788 bytes (sha256 04c8c75d5715…, downloaded 2026-10-15, data to 12 October 2026) to 61430196 bytes (sha256 8a26ffc8505d…, downloaded 2026-10-16, data to 13 October 2026). So the result was rebuilt from a newer counts file, not from the same raw files, and the answers for 2019 and 2025 did not change. Both builds used polars 2.0.0 from `uv.lock`.
+
+**Decision:** Loop two is done. A fresh clone gives the same two sentences and the same tables from a counts file one day newer than mine, so the result holds when the source moves. Known limit: the clone ran on my machine, with the same Python and the same uv cache, the build has not run on another machine. The one-pager gets the check as a line under Done in this package.
+
+## AI use · 2026-10-16 · rebuild from a fresh clone
+
+**Delegated:** the test, writing the entry and the line in `docs/one-pager.md`.
+
+**Mine:** the hypothesis, the expected result, that the test reports the sha256 of the raw files, and the decision.
+
+**Checks passed:**
+- The sentences of my working copy were taken from `city_sentence` on my answer tables, not from the clone's build output, so the two sides were computed separately.
+- The clone started without a `data/` folder, so every raw file was downloaded and every table built inside the clone.
