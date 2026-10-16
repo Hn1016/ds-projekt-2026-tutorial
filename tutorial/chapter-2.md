@@ -172,7 +172,7 @@ That is a result that could end the project. So before logging it we asked for t
 The answer changed the picture:
 
 - The 85 site IDs sit on only 44 places.
-- A place gets a new ID every few years. One spot ran under four IDs in a row.
+- A place gets a new ID every few years. Two spots ran under five IDs in a row.
 - So the 0% measured how often IDs change. It said nothing about where bikes are counted.
 
 Counted by place, 5 of 44 places report in every complete year. That is 11%, still far below the 80% we expected, but now it is a real finding: most places do not cover the whole period.

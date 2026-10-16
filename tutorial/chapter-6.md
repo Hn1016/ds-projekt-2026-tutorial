@@ -166,7 +166,7 @@ The third row is the one to remember. The fixture was written before the files w
 
 None of this is in `CLAUDE.md`. There is no rule that says "stop with an error instead of guessing". The agent reads the log and the fixtures, sees how the project decides, and asks in the same form. A repository that records its decisions teaches the agent how to make the next one.
 
-Result: the Decision entries of 2026-10-14 and 2026-10-15 in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md).
+Result: the Decision entries of 2026-10-14 and 2026-10-15 in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md) for the first three, and the fourth under "Mine" in the AI use entry of 2026-10-15.
 
 ## Let the sources meet in one place only
 
@@ -217,13 +217,13 @@ The source is in, and the moment a project starts to slip is now: the rules that
 
 **The package that grew.** The last package came to about 255 lines, over the limit of about 200. Part of it was a change to the loop-one step, `answer.py`, so that both answers share the band and the sentence. That is the exact point where a second source starts bending the first one's code, and the rule caught it: the agent named the number and proposed a split. The change to the old step became its own pull request, 27 lines of code and a log entry, with no change in results and the seven old tests passing untouched as the proof. A refactor is a package whose check is that nothing moved, and it must never travel inside a package that adds something.
 
-**The 230 lines that stayed.** With the refactor out, the answer package still had 230 lines. 111 of them are the test file and 10 the fixture, both of which a reader checks line by line anyway. The rule says "about 200", and this is what "about" is for. The reason is in the pull request, and that is the difference between a rule bent and a rule ignored.
+**The 230 lines that stayed.** With the refactor out, the answer package still had 230 lines. 111 of them are the test file and 10 the fixture, both of which a reader checks line by line anyway. The rule says "about 200", and this is what "about" is for. The reason was said in the chat and should have gone into the pull request, where the next reader finds it. Written down, it is the difference between a rule bent and a rule ignored.
 
 **The source that moved.** The last check ran the full build with `--force`. That rebuilds every step including the downloads, and the counts file on the portal had grown by a week since chapter 5. The base of the work had changed in the middle of a package. The manifest showed it: three new lines, and for the counts file a new size and hash. The agent rebuilt everything from the new file, compared every result with the old ones, found them unchanged, and wrote it into the log. Two things follow. The manifest from chapter 3 is what makes a moved source visible at all. And `--force` has earned a hardening package: one flag for the derived tables, a separate one for the downloads.
 
 The same run showed that the one-pager named the date to which the counts data runs, now wrong for the second time. One line points to the manifest instead. A number that changes with every download does not belong in a file that describes the project.
 
-**What it cost.** Five pull requests in two days: the rule, the source, the refactor, the step where the sources meet, and one line in the one-pager. No new tool, no new rule in `CLAUDE.md`, no change to any step of the first source. Everything chapters 1 to 5 built was used, and nothing had to be rebuilt. That is the return on the six hardening packages of loop one: the first source pays for the setup, and every source after it runs on that setup.
+**What stayed the same.** No new tool, no new rule in `CLAUDE.md`, no change to what any step of the first source produces. Everything chapters 1 to 5 built was used, and nothing had to be rebuilt. The first source pays for the setup, and every source after it runs on that setup.
 
 Result: the refactor in [pull request 17](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/17), the one-pager line in [pull request 19](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/19), and the re-download in the checks of the entry "the answer on dry weekdays" in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md).
 
