@@ -321,7 +321,7 @@ Results: [derive.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main
 
 ## Take the tour: what is in the repository now
 
-After two packages the repository holds about a dozen files, and each has one job. This tour shows what they are and what happens when you run the command.
+After two packages the repository holds the files and folders below, and each has one job. This tour shows what they are and what happens when you run the command.
 
 **What happens when you type `uv run build`**
 
@@ -400,7 +400,9 @@ This file describes the project. uv and the agent write it, and you should be ab
 | `src/ds_projekt_2026_tutorial/` | The pipeline code: `build.py` and one file per step | Yes |
 | `tests/` | The tests, and the fixture in `tests/fixtures/` | Yes |
 | `docs/` | One-pager, assumptions and log | Yes |
+| `README.md` | How to run the project, for whoever opens the repository | Yes |
 | `probe.py` | The exploration notebook from chapter 2 | Yes |
+| `__marimo__/` | The notebook's saved outputs, written by marimo | Yes |
 | `pyproject.toml` | The project description | Yes |
 | `uv.lock` | The exact version of every package. uv writes it, nobody edits it | Yes |
 | `.python-version` | The Python version uv uses for this project | Yes |
