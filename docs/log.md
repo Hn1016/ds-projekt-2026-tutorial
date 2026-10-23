@@ -304,18 +304,13 @@ The date of a day is the first 10 characters of `Datum`, the local date as the f
 
 From now on every package starts as an issue that a person writes before the branch exists, with the "Package" form in `.github/ISSUE_TEMPLATE/package.yml`. Its five required fields are what exists at the end, which question it serves, done when, kind and size, and out of scope. `CLAUDE.md` gets the rule in its Workflow section: a package starts as an issue that a person writes with the Package form before the branch exists, and its pull request closes that issue. Known limit: this package itself started before the form existed, so its pull request (#29) closes no issue.
 
-Open:
-- The reason for the decision.
-- The form says that more than about 200 lines needs a reason; `CLAUDE.md` says to propose a split when larger. Whether a reason is enough.
-- Whether blank issues stay possible (no `.github/ISSUE_TEMPLATE/config.yml`); `gh issue create` cannot fill the form.
-- Whether package issues get a label; the title prefix can be edited away.
-- Whether GitHub shows the form under New issue after the merge.
+The reason: a reviewer needs something to review against. Above about 200 lines a split is proposed first, and when a split does not help, the pull request gives the reason; `CLAUDE.md` says the same. Blank issues are switched off in `.github/ISSUE_TEMPLATE/config.yml`, so New issue offers only the Package form. Package issues get no label. Whether GitHub shows the form under New issue is checked by me, not by a test (#30).
 
 ## AI use · 2026-10-23 · package issue form
 
-**Delegated:** the issue form, the line in `README.md`, the wording of the line in `CLAUDE.md` and writing the entry.
+**Delegated:** the issue form, `config.yml`, the line in `README.md`, the wording of the package line in `CLAUDE.md` and writing the entry.
 
-**Mine:** the decision, that `CLAUDE.md` gets the rule, the form's name, title prefix, the five fields, their order and their descriptions.
+**Mine:** the decision and its reason, that `CLAUDE.md` gets the rule, the wording of the size line in `CLAUDE.md`, blank issues off, no label, the form's name, title prefix, the five fields, their order and their descriptions.
 
 **Checks passed:**
 - The form parses as YAML and its title prefix is "Package: ".

@@ -2,7 +2,7 @@
 
 ## Workflow
 - Plan before changing files, and wait for my go. (I decide what changes.)
-- One package per pull request: one purpose, under about 200 changed lines; propose a split when larger. (Small PRs stay reviewable.)
+- One package per pull request: one purpose, under about 200 changed lines. Above that, propose a split, and when a split does not help, the pull request gives the reason. (Small PRs stay reviewable.)
 - Never commit to main; work on a branch, and commit and push only when I say so. (main holds reviewed work only.)
 - After a pull request is merged, switch to main and pull before starting anything new. (New work starts from reviewed main.)
 - An @claude comment from me on a pull request counts as my go to commit and push to that pull request's branch. (The comment is the go.)
