@@ -17,6 +17,7 @@ This folder holds the tutorial text. Everything else in this repository was buil
 | [5 · From table to answer](chapter-5.md) | One command ends in a sentence that answers the question |
 | [6 · A second data source](chapter-6.md) | A second data source is in the pipeline, with its own download, step and fixture, and nothing that existed had to change |
 | [7 · The method becomes a tool](chapter-7.md) | The hypothesis routine is a skill that runs the same way every time, and a fresh clone builds the same answer with one command |
+| [8 · A package is an issue](chapter-8.md) | Every package is written down as an issue before the branch exists, done by the agent on your laptop or by the App on GitHub, and reviewed by what the agent decided, not by the diff |
 
 ## How to use the prompts
 

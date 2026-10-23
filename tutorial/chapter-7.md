@@ -169,4 +169,4 @@ The chapter ends here. The basics do too.
 
 ---
 
-Previous: [Chapter 6 · A second data source](chapter-6.md) · [Overview](README.md)
+Previous: [Chapter 6 · A second data source](chapter-6.md) · [Overview](README.md) · Next: [Chapter 8 · A package is an issue](chapter-8.md)
