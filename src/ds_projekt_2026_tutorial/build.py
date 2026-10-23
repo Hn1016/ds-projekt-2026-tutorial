@@ -7,6 +7,7 @@ from ds_projekt_2026_tutorial.days import WEATHER_YEARS, days
 from ds_projekt_2026_tutorial.derive import derive
 from ds_projekt_2026_tutorial.download import URL, WEATHER_URL, download
 from ds_projekt_2026_tutorial.load import load
+from ds_projekt_2026_tutorial.result import result
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW_DIR = ROOT / "data" / "raw"
@@ -32,4 +33,5 @@ def main() -> None:
     counts = load(raw, DERIVED_DIR / "counts.parquet", force=rebuild)
     place_year = derive(counts, DERIVED_DIR / "place_year.parquet", force=rebuild)
     answer_all = answer(place_year, DERIVED_DIR / "answer.parquet", force=rebuild)
-    answer_dry(counts, days_path, answer_all, DERIVED_DIR / "answer_dry.parquet", force=rebuild)
+    answer_dry_path = answer_dry(counts, days_path, answer_all, DERIVED_DIR / "answer_dry.parquet", force=rebuild)
+    result(answer_all, answer_dry_path, DERIVED_DIR / "result.md", force=rebuild)

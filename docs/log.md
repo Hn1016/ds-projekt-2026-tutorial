@@ -315,6 +315,16 @@ The reason: a reviewer needs something to review against. Above about 200 lines 
 **Checks passed:**
 - The form parses as YAML and its title prefix is "Package: ".
 
+## AI use · 2026-10-23 · result file for the reader
+
+**Delegated:** the step `result` in `src/ds_projekt_2026_tutorial/result.py`, its tests, the call in `build.py`, the lines in `README.md` and writing the entry (#32).
+
+**Mine:** the package (#32), the file location `data/derived/result.md`, that `tests/test_build.py` gets the step `result`, one decimal for bikes per day and the change in the file only (the parquet tables stay as they are), nulls as empty cells, no title (the file starts with the first sentence), and the fix to the paragraph in `README.md` that said the last two lines are the sentences.
+
+**Checks passed:**
+- After `uv run build`, the two sentences in `data/derived/result.md` are the ones the `answer` and `answer_dry` lines end with, and the file has 88 table rows, 44 per table, one per place.
+- A second `uv run build` prints `result: skipped`.
+
 ## AI use · 2026-10-23 · the untested assumption on the one-pager
 
 **Delegated:** the line under the rules for the first answer in `docs/one-pager.md` and writing this entry (issue #34).

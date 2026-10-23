@@ -17,8 +17,9 @@
 | derive | `data/derived/place_year.parquet` | one row per place and year: days with bike data and average bikes per day |
 | answer | `data/derived/answer.parquet` | one row per place: bikes per day in 2019 and 2025, the change in percent, a status (grew, shrank, unchanged or not comparable) and the reason for places that cannot be compared |
 | answer_dry | `data/derived/answer_dry.parquet` | the same columns as `answer.parquet`, on dry weekdays only: a place is comparable when it is comparable in `answer.parquet`, the others get the reason "not comparable on all days" |
+| result | `data/derived/result.md` | the two sentences for the city, each followed by its table from `answer.parquet` and `answer_dry.parquet`, with bikes per day and the change rounded to one decimal; for reading without Python |
 
-Each step prints one line and skips when its output already exists. Add `--force` to rebuild every derived step; the files in `data/raw` stay as they are. Add `--force-download` to fetch the raw files again as well, which adds a line per file to `data/raw/manifest.csv`, and rebuild every derived step. The last two lines are the sentences for the city, on all days and on dry weekdays: yes or no, and how many places grew, shrank, are unchanged or cannot be compared. The rules behind it are in `docs/one-pager.md`.
+Each step prints one line and skips when its output already exists. Add `--force` to rebuild every derived step; the files in `data/raw` stay as they are. Add `--force-download` to fetch the raw files again as well, which adds a line per file to `data/raw/manifest.csv`, and rebuild every derived step. The lines of `answer` and `answer_dry` end with the sentences for the city, on all days and on dry weekdays: yes or no, and how many places grew, shrank, are unchanged or cannot be compared. `data/derived/result.md` holds the same two sentences, each followed by its table. The rules behind it are in `docs/one-pager.md`.
 
 `uv run pytest` runs the tests.
 

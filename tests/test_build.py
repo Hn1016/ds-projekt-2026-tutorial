@@ -5,7 +5,7 @@ import pytest
 
 from ds_projekt_2026_tutorial import build
 
-DERIVED_STEPS = ["days", "load", "derive", "answer", "answer_dry"]
+DERIVED_STEPS = ["days", "load", "derive", "answer", "answer_dry", "result"]
 
 
 def run_build(monkeypatch, *options):
