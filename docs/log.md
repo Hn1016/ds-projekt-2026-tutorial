@@ -302,13 +302,13 @@ The date of a day is the first 10 characters of `Datum`, the local date as the f
 
 ## Decision · 2026-10-23 · a package starts as an issue
 
-From now on every package starts as an issue that a person writes before the branch exists, with the "Package" form in `.github/ISSUE_TEMPLATE/package.yml`. Its five required fields are what exists at the end, which question it serves, done when, kind and size, and out of scope. Whether `CLAUDE.md` says that a package starts as an issue and the pull request closes it stays open.
+From now on every package starts as an issue that a person writes before the branch exists, with the "Package" form in `.github/ISSUE_TEMPLATE/package.yml`. Its five required fields are what exists at the end, which question it serves, done when, kind and size, and out of scope. `CLAUDE.md` gets the rule in its Workflow section: a package starts as an issue written with the Package form, and its pull request closes that issue.
 
 ## AI use · 2026-10-23 · package issue form
 
-**Delegated:** the issue form, the line in `README.md` and writing the entry.
+**Delegated:** the issue form, the line in `README.md`, the wording of the line in `CLAUDE.md` and writing the entry.
 
-**Mine:** the decision, the form's name, title prefix, the five fields, their order and their descriptions.
+**Mine:** the decision, that `CLAUDE.md` gets the rule, the form's name, title prefix, the five fields, their order and their descriptions.
 
 **Checks passed:**
 - The form parses as YAML and its title prefix is "Package: ".
