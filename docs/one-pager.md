@@ -24,6 +24,7 @@ Nothing else came with it: no time span, no definition of cycling, no place.
 - Comparable: a place counts in a year when it has bike data on at least 300 days of that year. A place is comparable when that holds in both years.
 - Change: a place grew when its bikes per day rose by more than 5 percent, shrank when they fell by more than 5 percent, and is unchanged in between.
 - Answer for the city: yes when more than half of the comparable places grew.
+- Known limit: whether the 10 counting places stand for the whole city is untested (see `docs/log.md`, "Hypothesis · 2026-10-09 · Cycling grew at the comparable places").
 
 ## How
 
