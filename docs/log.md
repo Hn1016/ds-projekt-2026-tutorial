@@ -314,3 +314,13 @@ The reason: a reviewer needs something to review against. Above about 200 lines 
 
 **Checks passed:**
 - The form parses as YAML and its title prefix is "Package: ".
+
+## AI use · 2026-10-23 · the untested assumption on the one-pager
+
+**Delegated:** the line under the rules for the first answer in `docs/one-pager.md` and writing this entry (issue #34).
+
+**Mine:** that the one-pager names the assumption, where the line goes, and that the assumption stays untested.
+
+**Checks passed:**
+- The log entry the line points to exists under that title in `docs/log.md`.
+- `git diff` shows one added line in `docs/one-pager.md`; no other line changed.
