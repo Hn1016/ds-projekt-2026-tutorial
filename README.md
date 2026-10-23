@@ -23,3 +23,5 @@ Each step prints one line and skips when its output already exists. Add `--force
 `uv run pytest` runs the tests.
 
 In Claude Code, `/hypothesis <statement>` runs the hypothesis routine: it asks for the expected result, proposes a test, runs it outside the pipeline and writes the Hypothesis entry into `docs/log.md`.
+
+A package starts as an issue, written by a person with the "Package" form before the branch exists.

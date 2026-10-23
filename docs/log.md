@@ -299,3 +299,16 @@ The date of a day is the first 10 characters of `Datum`, the local date as the f
 **Checks passed:**
 - The sentences of my working copy were taken from `city_sentence` on my answer tables, not from the clone's build output, so the two sides were computed separately.
 - The clone started without a `data/` folder, so every raw file was downloaded and every table built inside the clone.
+
+## Decision · 2026-10-23 · a package starts as an issue
+
+From now on every package starts as an issue that a person writes before the branch exists, with the "Package" form in `.github/ISSUE_TEMPLATE/package.yml`. Its five required fields are what exists at the end, which question it serves, done when, kind and size, and out of scope. Whether `CLAUDE.md` says that a package starts as an issue and the pull request closes it stays open.
+
+## AI use · 2026-10-23 · package issue form
+
+**Delegated:** the issue form, the line in `README.md` and writing the entry.
+
+**Mine:** the decision, the form's name, title prefix, the five fields, their order and their descriptions.
+
+**Checks passed:**
+- The form parses as YAML and its title prefix is "Package: ".

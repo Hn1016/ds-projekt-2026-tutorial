@@ -1,0 +1,39 @@
+name: Package
+description: A package of work, written by a person before the branch exists.
+title: "Package: "
+body:
+  - type: textarea
+    id: what-exists
+    attributes:
+      label: What exists at the end
+      description: A file, a step, a sentence or a rule. One or two sentences, no how.
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Which question it serves
+      description: The line in the one-pager or the hypothesis in the log that this package belongs to.
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      description: What someone else runs or reads to see that it is done, with the expected value when there is one.
+    validations:
+      required: true
+  - type: textarea
+    id: kind-size
+    attributes:
+      label: Kind and size
+      description: Find out, keep it or harden it, and about how many lines. More than about 200 needs a reason.
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: What this package does not do, especially the tempting next thing.
+    validations:
+      required: true
