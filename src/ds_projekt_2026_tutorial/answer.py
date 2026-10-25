@@ -22,8 +22,10 @@ def status_expr() -> pl.Expr:
     )
 
 
-def place_change_table(place_year: pl.DataFrame) -> pl.DataFrame:
-    """One row per place: bikes per day in both years, the change in percent and a status.
+def place_change_table(
+    place_year: pl.DataFrame, first_year: int = FIRST_YEAR, last_year: int = LAST_YEAR
+) -> pl.DataFrame:
+    """One row per place: bikes per day in first_year and last_year, the change in percent and a status.
 
     A place is comparable when it has bike data on at least MIN_DAYS days in both years.
     It grew or shrank when the change is more than BAND_PERCENT, else it is unchanged.
@@ -47,13 +49,13 @@ def place_change_table(place_year: pl.DataFrame) -> pl.DataFrame:
             .then(pl.format(f"{y}: fewer than {MIN_DAYS} days ({{}})", days))
         )
 
-    first, last = pl.col(f"bikes_per_day_{FIRST_YEAR}"), pl.col(f"bikes_per_day_{LAST_YEAR}")
-    reasons = pl.concat_str([reason(FIRST_YEAR), reason(LAST_YEAR)], separator=" and ", ignore_nulls=True)
+    first, last = pl.col(f"bikes_per_day_{first_year}"), pl.col(f"bikes_per_day_{last_year}")
+    reasons = pl.concat_str([reason(first_year), reason(last_year)], separator=" and ", ignore_nulls=True)
     return (
         place_year.select("OST", "NORD")
         .unique()
-        .join(year(FIRST_YEAR), on=["OST", "NORD"], how="left")
-        .join(year(LAST_YEAR), on=["OST", "NORD"], how="left")
+        .join(year(first_year), on=["OST", "NORD"], how="left")
+        .join(year(last_year), on=["OST", "NORD"], how="left")
         .with_columns(reason=pl.when(reasons != "").then(reasons))
         .with_columns(change_percent=pl.when(pl.col("reason").is_null()).then((last - first) / first * 100))
         .with_columns(status=status_expr())
