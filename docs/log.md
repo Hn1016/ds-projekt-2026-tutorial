@@ -343,3 +343,44 @@ The reason: a reviewer needs something to review against. Above about 200 lines 
 
 **Checks passed:**
 - `uv run pytest` passes with every existing expected value unchanged.
+
+## Hypothesis · 2026-10-25 · The answer for the city on all days holds for the pairs of years 2018 to 2024, 2018 to 2025 and 2019 to 2024, with the 300-day rule applied to each pair
+
+**Expected:** all three must hold:
+a. At least 8 places are comparable in each of the three pairs.
+b. The sentence for the city is yes in each of the three pairs.
+c. For every place that is comparable in all four pairs (the three new ones and 2019 to 2025), its status from 2019 to 2025 (grew, shrank or unchanged) is the same in at least two of the three new pairs.
+
+**Test:** `place_change_table` with `first_year` and `last_year` (#39) and `city_sentence` on `data/derived/place_year.parquet`, for the pairs 2018 to 2024, 2018 to 2025, 2019 to 2024 and, as the reference, 2019 to 2025. The rules of the first answer stay: 300 days in both years of the pair, the 5 percent band and the majority rule. Counted per pair: the comparable places, grew, shrank and unchanged. For the places comparable in all four pairs: the four statuses. Not computed: dry weekdays, other pairs of years, a trend over all years. A script in the session scratchpad; nothing in `data/` was written.
+
+**Result:** a holds, b holds, c does not hold.
+
+- 2018 to 2024: 11 comparable, 7 grew, 1 shrank, 3 unchanged. "For the city: yes. 7 of 11 comparable places grew, 1 shrank, 3 are unchanged, 33 places cannot be compared."
+- 2018 to 2025: 10 comparable, 8 grew, 1 shrank, 1 unchanged. "For the city: yes. 8 of 10 comparable places grew, 1 shrank, 1 is unchanged, 34 places cannot be compared."
+- 2019 to 2024: 10 comparable, 6 grew, 1 shrank, 3 unchanged. "For the city: yes. 6 of 10 comparable places grew, 1 shrank, 3 are unchanged, 34 places cannot be compared."
+- 2019 to 2025 (reference): 10 comparable, 8 grew, 2 shrank, 0 unchanged.
+
+8 places are comparable in all four pairs. 6 of them have their 2019-to-2025 status in all three new pairs. 2 have it in only one of three, which breaks c: both grew from 2019 to 2025 and from 2018 to 2025, and are unchanged in both pairs ending in 2024. Per place (OST/NORD: 2018–2024, 2018–2025, 2019–2024, 2019–2025, change in percent):
+
+- 2681319/1248665: grew +65.7, grew +70.8, grew +39.2, grew +43.6
+- 2681339/1248647: grew +10.1, grew +10.9, grew +8.5, grew +9.2
+- 2682375/1247055: unchanged +3.3, grew +11.7, unchanged −2.5, grew +5.4
+- 2682731/1247708: shrank −16.0, shrank −24.3, shrank −11.7, shrank −20.4
+- 2682873/1245891: grew +17.7, grew +25.6, grew +24.0, grew +32.3
+- 2682881/1246549: grew +24.1, grew +35.5, grew +20.4, grew +31.5
+- 2682933/1248821: unchanged +2.2, grew +15.4, unchanged +0.1, grew +13.0
+- 2683457/1247065: grew +65.4, grew +82.1, grew +72.1, grew +89.5
+
+The set of comparable places differs per pair. 2682647/1250364 (grew) and 2683573/1248545 (unchanged) are comparable in both pairs that start in 2018 and in neither that starts in 2019. 2681857/1251991 (grew) is comparable only in 2018 to 2024. 2682296/1248311 and 2684006/1246566 are comparable in both pairs that start in 2019 and in neither that starts in 2018. 2682296/1248311 shrank from 2019 to 2025 and is unchanged from 2019 to 2024; it is not among the 8 for c.
+
+**Decision:** the answer for the city stands and is stronger than before, yes in all four pairs of years. The status of a single place is not stable: of the 8 places comparable in all four pairs, 2 grew only when the end year is 2025. One of them, 2682375/1247055, sits at +5.4 percent in the first answer, one point above the band, so it flips with any pair. The other, 2682933/1248821, is at +13.0 and +15.4 percent with 2025 and at +2.2 and +0.1 with 2024, and the 2019 to 2024 pair has 6 grew and 3 unchanged against 8 and 0, so 2024 looks like a weaker year citywide. The rules stay. The one-pager gets two lines: under the rules for the first answer a known limit, the status of a place can depend on the pair of years, measured on 2026-10-25 as 2 of 8 places, with both places named, and under Done one line that the city sentence held for three other pairs. Whether 2024 was a weak year for the whole city, for example a wet one, is a question for a later loop, the dry-weekday comparison for 2019 to 2024 would need the weather file for 2024.
+
+## AI use · 2026-10-25 · the answer on other pairs of years
+
+**Delegated:** the test, writing the entry and the two lines in `docs/one-pager.md`. Step 6 of the hypothesis skill says not to change `docs/one-pager.md`; it was bent on my instruction in the Decision, as in the run on public holidays (2026-10-16).
+
+**Mine:** the hypothesis, the expected result, that the 300-day rule is applied to each pair, that dry weekdays stay out, and the decision.
+
+**Checks passed:**
+- Second route: all four pairs recomputed from `data/derived/place_year.parquet` without `place_change_table`, by keeping place-years with at least 300 days, joining the two years and applying the 5 percent band. The comparable, grew and shrank counts of every pair, and the change of 2682375/1247055 and 2682933/1248821 in every pair, are the same as above.
+- The 2019-to-2025 pair gives the sentence in `data/derived/result.md`: 8 of 10 grew, 2 shrank, 0 unchanged.

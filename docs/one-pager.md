@@ -25,6 +25,7 @@ Nothing else came with it: no time span, no definition of cycling, no place.
 - Change: a place grew when its bikes per day rose by more than 5 percent, shrank when they fell by more than 5 percent, and is unchanged in between.
 - Answer for the city: yes when more than half of the comparable places grew.
 - Known limit: whether the 10 counting places stand for the whole city is untested (see `docs/log.md`, "Hypothesis · 2026-10-09 · Cycling grew at the comparable places").
+- Known limit: the status of a place can depend on the pair of years. Measured on 2026-10-25 on the pairs 2018 to 2024, 2018 to 2025 and 2019 to 2024: 2 of the 8 places comparable in all four pairs, 2682375/1247055 and 2682933/1248821, grew only when the end year is 2025 and are unchanged with 2024 (see `docs/log.md`, "Hypothesis · 2026-10-25").
 
 ## How
 
@@ -65,3 +66,4 @@ Nothing else came with it: no time span, no definition of cycling, no place.
 - Someone else can rebuild the table from nothing with one command and gets the same numbers from the same raw files.
 - Loop one is done when all of this holds for all days. Loop two is done when the same table exists for dry weekdays and the two tables are compared.
 - Checked on 2026-10-16: a fresh clone of `main`, `uv sync` and `uv run build` gave both sentences and both answer tables identical to my working copy, from a counts file one day newer. Known limit: on my machine, with the same Python and the same uv cache; the build has not run on another machine (see `docs/log.md`).
+- Checked on 2026-10-25: the sentence for the city is yes for the three other pairs of years 2018 to 2024, 2018 to 2025 and 2019 to 2024, with 7 of 11, 8 of 10 and 6 of 10 comparable places grown (see `docs/log.md`, "Hypothesis · 2026-10-25").
