@@ -334,3 +334,12 @@ The reason: a reviewer needs something to review against. Above about 200 lines 
 **Checks passed:**
 - The log entry the line points to exists under that title in `docs/log.md`.
 - `git diff` shows one added line in `docs/one-pager.md`; no other line changed.
+
+## AI use · 2026-10-25 · the comparison years become parameters
+
+**Delegated:** the parameters `first_year` and `last_year` of `place_change_table` in `src/ds_projekt_2026_tutorial/answer.py`, with `FIRST_YEAR` and `LAST_YEAR` as defaults, the test for the pair 2019 and 2022 in `tests/test_answer.py` and writing this entry (#39).
+
+**Mine:** the package (#39), the pair 2019 and 2022 for the test and its expected sentence.
+
+**Checks passed:**
+- `uv run pytest` passes with every existing expected value unchanged.

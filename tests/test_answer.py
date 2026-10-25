@@ -31,6 +31,13 @@ def test_city_sentence_on_fixture():
     assert city_sentence(place_change_table(pl.read_csv(FIXTURE))) == SENTENCE
 
 
+def test_city_sentence_for_another_pair_of_years():
+    table = place_change_table(pl.read_csv(FIXTURE), first_year=2019, last_year=2022)
+    assert city_sentence(table) == (
+        "For the city: yes. 1 of 1 comparable places grew, 0 shrank, 0 are unchanged, 4 places cannot be compared."
+    )
+
+
 def test_answer_writes_skips_and_forces(tmp_path, capsys):
     place_year_path = tmp_path / "place_year.parquet"
     pl.read_csv(FIXTURE).write_parquet(place_year_path)
