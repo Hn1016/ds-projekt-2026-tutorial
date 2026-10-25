@@ -1,4 +1,4 @@
-# DS-Projekt 2026 tutorial · Chapter 1 · Frame the question before the data
+# Chapter 1 · Frame the question before the data
 
 Oct 7, 2026 · Václav Pechtor
 

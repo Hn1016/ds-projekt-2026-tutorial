@@ -1,4 +1,4 @@
-# DS-Projekt 2026 tutorial · Chapter 5 · From table to answer
+# Chapter 5 · From table to answer
 
 Oct 9, 2026 · Václav Pechtor
 

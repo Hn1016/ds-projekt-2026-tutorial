@@ -1,4 +1,4 @@
-# DS-Projekt 2026 tutorial · Chapter 6 · A second data source
+# Chapter 6 · A second data source
 
 Oct 15, 2026 · Václav Pechtor
 
