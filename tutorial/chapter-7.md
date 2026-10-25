@@ -1,4 +1,4 @@
-# DS-Projekt 2026 tutorial · Chapter 7 · The method becomes a tool
+# Chapter 7 · The method becomes a tool
 
 Oct 16, 2026 · Václav Pechtor
 

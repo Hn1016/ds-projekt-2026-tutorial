@@ -1,4 +1,4 @@
-# DS-Projekt 2026 tutorial · Chapter 4 · Checks that run without you
+# Chapter 4 · Checks that run without you
 
 Oct 9, 2026 · Václav Pechtor
 

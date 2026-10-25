@@ -1,4 +1,4 @@
-# DS-Projekt 2026 tutorial · Chapter 3 · From exploration to a pipeline
+# Chapter 3 · From exploration to a pipeline
 
 Oct 8, 2026 · Václav Pechtor
 

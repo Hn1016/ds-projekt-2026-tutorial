@@ -1,4 +1,4 @@
-# DS-Projekt 2026 tutorial · Chapter 8 · A package is an issue
+# Chapter 8 · A package is an issue
 
 Oct 23, 2026 · Václav Pechtor
 
@@ -266,4 +266,4 @@ The chapter ends here. The next one goes deeper into one tool.
 
 ---
 
-Previous: [Chapter 7 · The method becomes a tool](chapter-7.md) · [Overview](README.md)
+Previous: [Chapter 7 · The method becomes a tool](chapter-7.md) · [Overview](README.md) · Next: [Chapter 9 · One check that can fail](chapter-9.md)

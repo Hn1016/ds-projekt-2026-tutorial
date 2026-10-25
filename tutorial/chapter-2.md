@@ -1,4 +1,4 @@
-# DS-Projekt 2026 tutorial · Chapter 2 · Test what can break your project first
+# Chapter 2 · Test what can break your project first
 
 Oct 8, 2026 · Václav Pechtor
 
