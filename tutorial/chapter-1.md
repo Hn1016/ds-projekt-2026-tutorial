@@ -28,7 +28,7 @@ A question as it arrives is never the question you can answer. The page forces t
 
 The reader shapes everything that follows. A planner who must defend the answer needs to know which sites can be compared and which cannot, so the page says that nothing is dropped silently.
 
-Result: [docs/one-pager.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/one-pager.md)
+Result: [docs/one-pager.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch1/docs/one-pager.md)
 
 ## Let the agent ask, and answer yourself
 
@@ -98,7 +98,7 @@ You rate each assumption twice: how much it hurts if it is false, and how much e
 
 In the example six assumptions tie at the top. Break a tie by cost, and test first what the cheapest look at the data can settle. Chapter 2 starts there.
 
-Result: [docs/assumptions.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/assumptions.md)
+Result: [docs/assumptions.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch1/docs/assumptions.md)
 
 ## For your own project
 

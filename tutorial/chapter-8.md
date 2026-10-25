@@ -1,4 +1,4 @@
-# Chapter 8 · A package is an issue
+# DS-Projekt 2026 tutorial · Chapter 8 · A package is an issue
 
 Oct 23, 2026 · Václav Pechtor
 
