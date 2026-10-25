@@ -1,4 +1,4 @@
-# Chapter 7 · The method becomes a tool
+# DS-Projekt 2026 tutorial · Chapter 7 · The method becomes a tool
 
 Oct 16, 2026 · Václav Pechtor
 
@@ -46,6 +46,8 @@ Add a line to the README on how to run it.
 Stop when the skill exists, I will run it myself.
 ```
 
+The prompt says three times. It was five by then, the table at the end of this chapter lists them. The prompt is quoted as it was sent.
+
 The three stops are the prompt's core. The expected result is given before a result exists, that is what makes a statement a hypothesis. The go comes after you have read the test and what it does not compute. The decision comes after the result, in your words. At none of the three does the agent propose a value. This is where the rule "fixtures and expected values are mine" from chapter 3 gets its procedure.
 
 `disable-model-invocation: true` means the skill runs only when you type `/hypothesis`, never because Claude Code decided a hypothesis was due. The student decides when to test, the tool runs the test the same way every time.
@@ -58,7 +60,7 @@ The plan came back with three questions, as plans do. All three answers are your
 | Does the skill write an AI use entry too? | Yes, a short one after each Hypothesis entry. | Otherwise the rule "AI use goes into the log" breaks on every run. |
 | The skill writes to the log. What if you are on main? | It creates a branch `hypothesis-<slug>` first. On another branch it writes there. | A hypothesis is a package of the "find out" kind and gets its own pull request. |
 
-The result: [SKILL.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/.claude/skills/hypothesis/SKILL.md), 74 lines, [issue 23](https://github.com/vp-82/ds-projekt-2026-tutorial/issues/23) and [pull request 24](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/24), 86 lines in three files.
+The result: [SKILL.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch7/.claude/skills/hypothesis/SKILL.md), 74 lines, [issue 23](https://github.com/vp-82/ds-projekt-2026-tutorial/issues/23) and [pull request 24](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/24), 86 lines in three files.
 
 One thing to know before the first run. After the merge, `/hypothesis` was an unknown command. Claude Code watches the skill folders that existed when the session started, and `.claude/skills/` was new. One command fixes it:
 

@@ -97,7 +97,7 @@ Commit and push.
 
 Replace the hypothesis, the expectation and the test with your own. The 80% was our honest guess, written down before the file was touched.
 
-Result: [docs/log.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md)
+Result: [docs/log.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch2/docs/log.md)
 
 ## Explore in a marimo notebook
 
@@ -159,7 +159,7 @@ uv add marimo
 uv run marimo edit probe.py
 ```
 
-The downloaded file lands in `data/`, which is not committed. Result: [probe.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/probe.py)
+The downloaded file lands in `data/`, which is not committed. Result: [probe.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch2/probe.py)
 
 ## Check a surprising result before you believe it
 
@@ -193,7 +193,7 @@ The one-pager stays short because the history lives in the log. Anyone who wonde
 
 One question is now sharper than before: which years can be compared at all? It gets decided at the start of chapter 3, before the first comparison is computed.
 
-Results: [docs/log.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md), [docs/one-pager.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/one-pager.md), [docs/assumptions.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/assumptions.md)
+Results: [docs/log.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch2/docs/log.md), [docs/one-pager.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch2/docs/one-pager.md), [docs/assumptions.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch2/docs/assumptions.md)
 
 ## For your own project
 

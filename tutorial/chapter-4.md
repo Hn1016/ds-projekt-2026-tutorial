@@ -67,7 +67,7 @@ Three things make a rules file work:
 
 The rules file is context for the agent. It is not a lock. If something must be impossible, and not just discouraged, it needs a mechanism, and the next two sections add one.
 
-Result: [CLAUDE.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/CLAUDE.md). More in the Claude Code documentation: [How Claude remembers your project](https://code.claude.com/docs/en/memory).
+Result: [CLAUDE.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch4/CLAUDE.md). More in the Claude Code documentation: [How Claude remembers your project](https://code.claude.com/docs/en/memory).
 
 ## Let CI run your tests on every pull request
 
@@ -101,7 +101,7 @@ The green check means that the tests passed on a machine nobody set up by hand. 
 
 The agent also raised a risk in its plan before it could bite: the uv on my machine was older than the one CI would use. It tried the locked install with the CI version before pushing, and the lock file was accepted unchanged. The short rule is to use the same tool versions locally and in CI. Where they differ, the locked install tells you.
 
-Result: [tests.yml](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/.github/workflows/tests.yml) and [pull request 3](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/3). More in [Using uv in GitHub Actions](https://docs.astral.sh/uv/guides/integration/github/) and in GitHub's [Understanding GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions).
+Result: [tests.yml](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch4/.github/workflows/tests.yml) and [pull request 3](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/3). More in [Using uv in GitHub Actions](https://docs.astral.sh/uv/guides/integration/github/) and in GitHub's [Understanding GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions).
 
 ## Turn the check into a gate, and test the gate once
 
@@ -150,7 +150,7 @@ The check is red, it is marked "Required", and the merge button is greyed out. T
 - **Switch to `main` and pull before you start anything new.** The agent sees only your local folder. After pull request 2 was merged on GitHub, it offered to open a pull request for that same branch, because locally nothing had changed.
 - **Delete the merged branch,** or let GitHub do it. The repository setting "Automatically delete head branches" removes the branch on GitHub after each merge.
 
-Result: the [ruleset](https://github.com/vp-82/ds-projekt-2026-tutorial/rules/24737527), the gate test in [pull request 4](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/4), and the entry "repository settings that are not files" in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md). More in GitHub's [About rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
+Result: the [ruleset](https://github.com/vp-82/ds-projekt-2026-tutorial/rules/24737527), the gate test in [pull request 4](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/4), and the entry "repository settings that are not files" in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch4/docs/log.md). More in GitHub's [About rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 ## Let a reviewer read every pull request against your rules
 
@@ -281,7 +281,7 @@ The same pull request added the log entry for the two settings on GitHub, the ru
 
 This pull request went through everything the chapter built. The tests ran, the gate applied, and the review answered: "No issues found."
 
-Result: [pull request 13](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/13) and the current [CLAUDE.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/CLAUDE.md).
+Result: [pull request 13](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/13) and the current [CLAUDE.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch4/CLAUDE.md).
 
 Every pull request is now tested, gated and reviewed. Chapter 5 uses this to get to the first answer: it fixes the rules for the answer before the result exists, repairs one flaw in the table and ends with a yes or a no.
 

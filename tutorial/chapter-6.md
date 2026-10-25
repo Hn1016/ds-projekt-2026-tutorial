@@ -145,7 +145,7 @@ What to look for in the result, and in your own project:
 - **Nothing that existed changed.** The seven tests of loop one passed untouched, and three new ones came with the step. The counts, the table per place and year and the first answer are exactly as before. If a new source makes an old test change, something is wired into the wrong place.
 - **The step was checked against a number from another route.** The one-off count of the last package found 120 and 130 dry weekdays. The pipeline step finds the same. That is the check from chapter 3, applied to a new source, and it is what the last sentence of the prompt asks for.
 
-Result: [days.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/src/ds_projekt_2026_tutorial/days.py), the fixture [weather\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/tests/fixtures/weather_small.csv) and [pull request 16](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/16), 144 lines in seven files.
+Result: [days.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch6/src/ds_projekt_2026_tutorial/days.py), the fixture [weather\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch6/tests/fixtures/weather_small.csv) and [pull request 16](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/16), 144 lines in seven files.
 
 ## Where the source has a case the rule does not cover, stop
 
@@ -166,7 +166,7 @@ The third row is the one to remember. The fixture was written before the files w
 
 None of this is in `CLAUDE.md`. There is no rule that says "stop with an error instead of guessing". The agent reads the log and the fixtures, sees how the project decides, and asks in the same form. A repository that records its decisions teaches the agent how to make the next one.
 
-Result: the Decision entries of 2026-10-14 and 2026-10-15 in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md) for the first three, and the fourth under "Mine" in the AI use entry of 2026-10-15.
+Result: the Decision entries of 2026-10-14 and 2026-10-15 in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch6/docs/log.md) for the first three, and the fourth under "Mine" in the AI use entry of 2026-10-15.
 
 ## Let the sources meet in one place only
 
@@ -209,7 +209,7 @@ The result for the case: the answer holds on dry weekdays, and it is weaker. 6 o
 
 Two questions came back before the build, and both are about keeping the two answers comparable. Should the new sentence keep the wording of loop one with only the opening changed? Yes, so that the two can stand next to each other. Should places that cannot be compared keep their bikes per day, as in loop one? Yes, for the same reason. A second source that produces a second format for the same kind of result has already started to bend the project.
 
-Result: [answer\_dry.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/src/ds_projekt_2026_tutorial/answer_dry.py), the fixture [place\_year\_dry\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/tests/fixtures/place_year_dry_small.csv), the entry "The answer holds on dry weekdays" in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md), and [pull request 18](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/18).
+Result: [answer\_dry.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch6/src/ds_projekt_2026_tutorial/answer_dry.py), the fixture [place\_year\_dry\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch6/tests/fixtures/place_year_dry_small.csv), the entry "The answer holds on dry weekdays" in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch6/docs/log.md), and [pull request 18](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/18).
 
 ## What keeps it from falling apart afterwards
 
@@ -225,7 +225,7 @@ The same run showed that the one-pager named the date to which the counts data r
 
 **What stayed the same.** No new tool, no new rule in `CLAUDE.md`, no change to what any step of the first source produces. Everything chapters 1 to 5 built was used, and nothing had to be rebuilt. The first source pays for the setup, and every source after it runs on that setup.
 
-Result: the refactor in [pull request 17](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/17), the one-pager line in [pull request 19](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/19), and the re-download in the checks of the entry "the answer on dry weekdays" in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md).
+Result: the refactor in [pull request 17](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/17), the one-pager line in [pull request 19](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/19), and the re-download in the checks of the entry "the answer on dry weekdays" in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch6/docs/log.md).
 
 ## For your own project
 

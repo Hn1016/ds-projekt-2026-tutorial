@@ -19,6 +19,14 @@ This folder holds the tutorial text. Everything else in this repository was buil
 | [7 · The method becomes a tool](chapter-7.md) | The hypothesis routine is a skill that runs the same way every time, and a fresh clone builds the same answer with one command |
 | [8 · A package is an issue](chapter-8.md) | Every package is written down as an issue before the branch exists, done by the agent on your laptop or by the App on GitHub, and reviewed by what the agent decided, not by the diff |
 
+## When to read what
+
+The chapters follow the example, not your calendar. For your own project:
+
+- Chapters 1 to 3 before the kickoff: the one-pager, the first hypothesis, the first pipeline.
+- Chapters 4 and 8 before the first pull request: the checks that run without you, and the package as an issue.
+- Chapters 5 to 7 when the first answer is in sight: the sentence, the second source, the method as a skill.
+
 ## How to use the prompts
 
 Prompts and commands stand in grey boxes. Move the mouse over a box and a copy button appears at its top right.

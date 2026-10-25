@@ -24,7 +24,7 @@ A pipeline fixes all three. It is a sequence of steps behind one command, and th
 
 Not everything moves. Only a result you will need again is worth this effort. For us that is the table from the one-pager: one row per place and year.
 
-Before building, the two open choices went into the log as a decision: which source file the pipeline uses, and what the first table contains. See [docs/log.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md).
+Before building, the two open choices went into the log as a decision: which source file the pipeline uses, and what the first table contains. See [docs/log.md](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch3/docs/log.md).
 
 ## What a pipeline is
 
@@ -163,7 +163,7 @@ The plan stayed inside these limits, so there was nothing to trim. A plan grows 
 2. One line in `pyproject.toml` that gives this function a name: `build = "ds_projekt_2026_tutorial.build:main"`.
 3. A build-system entry in `pyproject.toml`, so that uv installs the project itself into its environment. That creates the command.
 
-`uv run build` then means: run the command named `build` inside this project's environment. You will not write any of this by hand, but now you know what it does. See [build.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/src/ds_projekt_2026_tutorial/build.py) and [pyproject.toml](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/pyproject.toml).
+`uv run build` then means: run the command named `build` inside this project's environment. You will not write any of this by hand, but now you know what it does. See [build.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch3/src/ds_projekt_2026_tutorial/build.py) and [pyproject.toml](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch3/pyproject.toml).
 
 **Check it yourself.** The agent ran the checks too, but checking is your part:
 
@@ -317,7 +317,7 @@ def test_place_year_table_on_fixture():
 
 The numbers in `expected` are your table from the fixture section, with the 15 from the added row. The last line is the claim: the function's result equals your answer.
 
-Results: [derive.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/src/ds_projekt_2026_tutorial/derive.py), [test\_derive.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/tests/test_derive.py), [counts\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/tests/fixtures/counts_small.csv)
+Results: [derive.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch3/src/ds_projekt_2026_tutorial/derive.py), [test\_derive.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch3/tests/test_derive.py), [counts\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch3/tests/fixtures/counts_small.csv)
 
 ## Take the tour: what is in the repository now
 

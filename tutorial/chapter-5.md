@@ -96,7 +96,7 @@ The fixture is still small enough to read in one look, and each of its special r
 
 When the agent asks what you meant, or when you take a decision about the data, the answer is a row and an expected value. A sentence in the chat is gone with the session.
 
-Result: the fixture [counts\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/tests/fixtures/counts_small.csv) and the two decisions of 2026-10-09 in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md).
+Result: the fixture [counts\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch5/tests/fixtures/counts_small.csv) and the two decisions of 2026-10-09 in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch5/docs/log.md).
 
 ## Fix the rules for the answer before the result exists
 
@@ -122,7 +122,7 @@ Three things matter more than the numbers in that table:
 
 The same order applies to your own project, whatever the method is. Decide the metric, the threshold and the split of your data before you look at the outcome, and commit that decision first.
 
-Result: the rules in the [one-pager](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/one-pager.md) and [pull request 10](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/10).
+Result: the rules in the [one-pager](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch5/docs/one-pager.md) and [pull request 10](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/10).
 
 ## A failed hypothesis can change the wording and leave the rules alone
 
@@ -149,7 +149,7 @@ Compare this with chapter 2. There a failed hypothesis changed the plan: the uni
 
 Note also what the test did not do. It counted places and computed no change between the years. So when the decision was taken, nobody knew yet whether the answer would be yes or no.
 
-Result: the entry "Enough places are comparable to answer for the city" in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/docs/log.md), in the same [pull request 10](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/10).
+Result: the entry "Enough places are comparable to answer for the city" in the [log](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch5/docs/log.md), in the same [pull request 10](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/10).
 
 ## The answer step is a step like any other
 
@@ -200,7 +200,7 @@ No place was dropped silently. Each of the 44 has either a value or a stated rea
 
 The pull request came to 184 lines, just under the limit. The tests passed, and the review answered "No issues found".
 
-Result: [answer.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/src/ds_projekt_2026_tutorial/answer.py), the fixture [place\_year\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/main/tests/fixtures/place_year_small.csv) and [pull request 12](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/12).
+Result: [answer.py](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch5/src/ds_projekt_2026_tutorial/answer.py), the fixture [place\_year\_small.csv](https://github.com/vp-82/ds-projekt-2026-tutorial/blob/ch5/tests/fixtures/place_year_small.csv) and [pull request 12](https://github.com/vp-82/ds-projekt-2026-tutorial/pull/12).
 
 ## Three kinds of packages
 
